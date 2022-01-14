@@ -1,0 +1,541 @@
+/* ======================
+---Import Google Fonts---
+====================== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Ubuntu:wght@400;700&display=swap');
+
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Ubuntu', sans-serif; */
+
+/* =====================================
+--------------Variables------------
+================================== */
+:root {
+    --primary-color: #c0392b;
+    --secondary-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+}
+
+/* ======================
+---------CSS Reset-------
+====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.2;
+}
+
+/* =========================
+---------Utility Class------
+========================= */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.current {
+   border-bottom: 2px solid var(--primary-color);
+}
+
+.py-1 { padding: .5rem 0}
+
+.btn {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border: none;
+    outline: none;
+    background: var(--primary-color);
+    color: var(--light-color);
+    text-transform: uppercase;
+    font-size: 1rem;
+    border-radius: .2rem;
+    margin: .5rem 0;
+}
+
+.btn:hover {
+    opacity: .9;
+}
+
+.btn-light {
+    color: var(--primary-color);
+    background: var(--light-color);
+}
+
+.bg-dark {
+    background: var(--dark-color);
+    color: #fff;
+}
+/* =====================================
+------------Navbar Styles------------
+================================== */
+
+#main-header .main-nav {
+    background: var(--light-color);
+    position: sticky;
+    top: 0;
+}
+
+.main-nav .nav-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.main-nav .logo img {
+    height: 64px;
+    width: 64px;
+    transform: translateX(0);
+    animation: playing 2s linear infinite;
+}
+
+.main-nav .socials a{
+    font-size: 2rem;
+    padding: 0 .5rem;
+}
+.main-nav .socials a i {
+    transition: 250ms ease;
+}
+
+.main-nav .socials a:hover i{
+    color: red;
+    transform: scale(1.5);
+}
+
+.main-nav .menu ul{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main-nav .menu ul li {
+    position: relative;
+}
+
+.main-nav .menu ul li a{
+    padding: .75rem;
+    transition: 250ms;
+    font-weight: bold;
+}
+
+.main-nav .menu ul li a:hover {
+    color: var(--primary-color);
+}
+
+.main-nav .menu .dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    left: 1.25rem;
+    top: 2rem;
+    background: var(--light-color);
+    min-width: 100%;
+}
+
+.main-nav .menu .dropdown a {
+    display: inline-block;
+    padding: .5rem 1rem;
+}
+
+.main-nav .menu ul li:hover>.dropdown {
+    display: block;
+}
+
+/* ======================================
+---------------Showcase Styles-----------
+====================================== */
+
+#showcase {
+    height: calc(100vh - 68.64px);
+    background: url(../img/bg/showcase.jpg) no-repeat center center/cover;
+    /* background-blend-mode: overlay; */
+}
+
+#showcase .overlay {
+    background: rgba(0, 0, 0, .5);
+    height: 100%;
+}
+
+#showcase .showcase-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+#showcase .showcase-container h1 {
+    position: relative;
+    color: transparent;
+    font-size: 3rem;
+}
+
+#showcase .showcase-container h1::before {
+    content: 'Practice makes a man perfect!';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 0, 0));
+    -webkit-background-clip: text;
+    
+    /* color: var(--primary-color); */
+    animation: typing 4s linear infinite;
+}
+
+/* ============================================
+------------Media section----------------------
+============================================ */
+/* .media {
+    background: var(--dark-color);
+    color: #fff;
+} */
+
+.media .media-container {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    overflow: hidden;
+    min-height: 300px;
+}
+
+.media .audio-song audio {
+    margin-bottom: 1rem;
+}
+
+.media .yt-video {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.media iframe {
+    width: 400px;
+    height: 250px;
+}
+/* =======================================
+-----------Phone section------------------
+======================================= */
+.phone .phone-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    padding: 0 2rem;
+}
+
+.phone .phone-container .photo-frame {
+    position: relative;
+    overflow: hidden;
+}
+
+.phone .phone-container .photo-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background:rgba(0, 0, 0, .5);
+    display: none;
+}
+
+.phone .phone-container .phone-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* text-align: center; */
+    transform: translateY(-2500px);
+    transition: 250ms ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.phone .phone-container .photo-frame:hover img {
+    transform: scale(1.4);
+    transition: transform 250ms linear;
+}
+
+.phone .phone-container .photo-frame:hover .phone-info
+ {
+    transform: translateY(0);
+    background:rgba(0, 0, 0, .7);
+}
+
+.phone .phone-container .photo-frame:hover .photo-frame::after {
+    display: block;
+}
+
+.buy-btn {
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.animated-btn {
+    box-shadow: 0px 7px 0 rgba(228, 51, 51, 0.699);  
+    margin: 1rem;  
+    position: relative;
+    top: 0;
+}
+
+.animated-btn:active {
+    top: 5px;
+    box-shadow: 0px 2px 0 rgba(255, 0, 0, 0.637); 
+}
+
+/* ====================================
+---------------Animation---------------
+==================================== */
+@keyframes fiery {
+     
+}
+@keyframes playing {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+
+.ellip p{
+    overflow: hidden;
+    width: 130px;
+    height: 20px;
+    background: #333;
+    color: #fff;
+    text-overflow: ellipsis;
+}
+
+
+@keyframes typing {
+    0% {
+        content: '|';
+    }
+    2% {
+        content: 'P|';
+    }
+    4% {
+        content: 'Pr|';
+    }
+    6% {
+        content: 'Pra|';
+    }
+    8% {
+        content: 'Prac|';
+    }
+    10% {
+        content: 'Pract|';
+    }
+    12% {
+        content: 'Practi|';
+    }
+    14% {
+        content: 'Practic|';
+    }
+    16% {
+        content: 'Practice|';
+    }
+    18% {
+        content: 'Practice |';
+    }
+    20% {
+        content: 'Practice m|';
+    }
+    22% {
+        content: 'Practice ma|';
+    }
+    24% {
+        content: 'Practice mak|';
+    }
+    26% {
+        content: 'Practice make|';
+    }
+    28% {
+        content: 'Practice makes|';
+    }
+    30% {
+        content: 'Practice makes |';
+    }
+    32% {
+        content: 'Practice makes a|';
+    }
+    34% {
+        content: 'Practice makes a |';
+    }
+    36% {
+        content: 'Practice makes a m|';
+    }
+    38% {
+        content: 'Practice makes a ma|';
+    }
+    40% {
+        content: 'Practice makes a man|';
+    }
+    42% {
+        content: 'Practice makes a man |';
+    }
+    44% {
+        content: 'Practice makes a man p|';
+    }
+    46% {
+        content: 'Practice makes a man pe|';
+    }
+    48% {
+        content: 'Practice makes a man per|';
+    }
+    50% {
+        content: 'Practice makes a man perf|';
+    }
+    52% {
+        content: 'Practice makes a man perfe|';
+    }
+    54% {
+        content: 'Practice makes a man perfec|';
+    }
+    56% {
+        content: 'Practice makes a man perfect|';
+    }
+    58% {
+        content: 'Practice makes a man perfect!|';
+    }
+    60% {
+        content: 'Practice makes a man perfect!';
+    }
+    62% {
+        content: 'Practice makes a man perfect!|';
+    }
+    64% {
+        content: 'Practice makes a man perfect!';
+    }
+    66% {
+        content: 'Practice makes a man perfect!|';
+    }
+    68% {
+        content: 'Practice makes a man perfect!';
+    }
+    70% {
+        content: 'Practice makes a man perfect!|';
+    }
+    71% {
+        content: 'Practice makes a man perfect|';
+    }
+    72% {
+        content: 'Practice makes a man perfec|';
+    }
+    73% {
+        content: 'Practice makes a man perfe|';
+    }
+    74% {
+        content: 'Practice makes a man perf|';
+    }
+    75% {
+        content: 'Practice makes a man per|';
+    }
+    76% {
+        content: 'Practice makes a man pe|';
+    }
+    77% {
+        content: 'Practice makes a man p|';
+    }
+    78% {
+        content: 'Practice makes a man |';
+    }
+    79% {
+        content: 'Practice makes a man|';
+    }
+    80% {
+        content: 'Practice makes a ma|';
+    }
+    81% {
+        content: 'Practice makes a m|';
+    }
+    82% {
+        content: 'Practice makes a |';
+    }
+    83% {
+        content: 'Practice makes a|';
+    }
+    84% {
+        content: 'Practice makes |';
+    }
+    85% {
+        content: 'Practice makes|';
+    }
+    86% {
+        content: 'Practice make|';
+    }
+    87% {
+        content: 'Practice mak|';
+    }
+    88% {
+        content: 'Practice ma|';
+    }
+    89% {
+        content: 'Practice m|';
+    }
+    90% {
+        content: 'Practice |';
+    }
+    91% {
+        content: 'Practice|';
+    }
+    92% {
+        content: 'Practic|';
+    }
+    93% {
+        content: 'Practi';
+    }
+    94% {
+        content: 'Pract|';
+    }
+    95% {
+        content: 'Prac|';
+    }
+    96% {
+        content: 'Pra|';
+    }
+    97% {
+        content: 'Pr|';
+    }
+    98% {
+        content: 'P|';
+    }
+    99% {
+        content: '|';
+    }
+    100% {
+        content: '';
+    }
+    
+}
